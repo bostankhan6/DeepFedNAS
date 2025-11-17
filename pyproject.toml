@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deepfednas"
+version = "0.1.0"
+description = "Federated Neural Architecture Search Framework with Entropy Maximization"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Bostan Khan", email = "bostan.khan@mdu.se"}
+]
+dependencies = [
+    # Core Math & Data
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+    "networkx",
+    "h5py",
+    
+    # Deep Learning
+    "torch>=1.13.0",
+    "torchvision>=0.14.0",
+    "ofa",  # Once-for-All library
+    
+    # Visualization & Logging
+    "matplotlib",
+    "seaborn",
+    "wandb",
+    "tqdm",
+    
+    # Utilities & Serialization
+    "requests",
+    "PyYAML",
+    "ruamel.yaml",
+    "dill",
+    "Pillow",
+    
+    # Federated / Distributed System support (from your list)
+    "flask",
+    "gunicorn",
+    "gevent",
+    "paho-mqtt",
+    "Celery",
+    
+    # Legacy/Compat (Keep if unsure, remove if possible)
+    "six",
+    "certifi",
+    "urllib3"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
