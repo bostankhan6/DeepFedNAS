@@ -11,24 +11,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import joblib # No longer strictly needed for scaler, but kept for potential future use or consistency
 
-# --- Path Setup ---
-# Adjust this path to ensure all necessary modules can be imported
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../..")))
-
-# --- Import Your Project's Modules ---
-try:
-    # Assuming GenericServerOFA and its associated SuperNet class are here
-    from deepfednas.Server.generic_server_model import GenericServerOFA
-    # subnet_macs needs to be imported
-    from deepfednas.utils.subnet_cost import subnet_macs
-    # If decode_chromosome is in a specific utility file, import it.
-    # Otherwise, it's defined here for now.
-    # from fedml_api.standalone.superfednas.utils.your_utils_file import decode_chromosome
-except ImportError as e:
-    print(f"ERROR: Could not import necessary modules. Please check your sys.path and module names. {e}")
-    print("Ensure fedml_api.standalone.superfednas.Server.ServerModel.generic_server_model "
-          "and fedml_api.standalone.superfednas.utils.subnet_macs are accessible.")
-    sys.exit(1)
+# Assuming GenericServerOFA and its associated SuperNet class are here
+from deepfednas.Server.generic_server_model import GenericServerOFA
+# subnet_macs needs to be imported
+from deepfednas.utils.subnet_cost import subnet_macs
 
 
 # ==========================================================================================
@@ -36,10 +22,10 @@ except ImportError as e:
 # ==========================================================================================
 class Config:
     # CRITICAL CUSTOMIZATION 1: Path to your trained DeepFedNAS SuperNet checkpoint
-    SUPERNET_PATH = "/home/bostan/projects/superfednas/fedml_experiments/standalone/superfednas/trained_models/4-stage_continued_cached_60_subnets_p1024_g1024_w-fine-grained.pt" 
+    SUPERNET_PATH = "trained_models/4-stage_continued_cached_60_subnets.pt" 
     
     # CRITICAL CUSTOMIZATION 2: Output folder for dataset and LPM model
-    OUTPUT_FOLDER = "/home/bostan/projects/superfednas/fedml_experiments/standalone/superfednas/evaluation/latency_prediction/datasets_and_predictor_models_cuda_bs-1" 
+    OUTPUT_FOLDER = "evaluation/latency_prediction/datasets_and_predictor_models_cuda_bs-1" 
 
     # CRITICAL CUSTOMIZATION 3: Target device for latency measurement
     DEVICE_TYPE = "cpu" # "cpu" or "cuda:0" etc.

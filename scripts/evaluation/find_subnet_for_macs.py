@@ -4,11 +4,7 @@ import sys
 import json
 import numpy as np
 
-# --- Path Setup ---
-# This ensures the script can find your custom utility modules
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../..")))
-
-# --- Import Your Project's Modules ---
+# --- Import Project's Modules ---
 try:
     # Import the Genetic Algorithm from your existing script
     from deepfednas.nas.deepfednas_fitness_maximizer import run_entropy_max_ga

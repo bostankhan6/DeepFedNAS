@@ -8,14 +8,14 @@ echo "Running experiment from root: $PROJECT_ROOT"
 
 python train.py \
     --model ofaresnet_generic \
-    --wandb_project_name Deepfednas_cifar10 \
+    --wandb_project_name new_deepfednas_repo \
     --wandb_group "non-iid-1.0_4_Stage_original_Supernet" \
     --wandb_run_name "Baseline_TS_all_random_seed0" \
     --gpu 0 \
     --dataset cifar10 \
     --data_dir "$PROJECT_ROOT/data/cifar10" \
     --partition_method hetero \
-    --partition_alpha 1 \
+    --partition_alpha 1.0 \
     --client_num_in_total 20 \
     --client_num_per_round 8 \
     --comm_round 1500 \

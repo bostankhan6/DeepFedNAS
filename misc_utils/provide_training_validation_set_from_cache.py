@@ -11,7 +11,7 @@ import ast
 
 # --- Input and Output Files ---
 # Path to your pre-computed optimal path cache
-OPTIMAL_PATH_CACHE_PATH = "results/4_stage_cache_60_eqdst_samples.csv"
+OPTIMAL_PATH_CACHE_PATH = "subnet_caches/4_stage_cache_60_subnets.csv"
 
 # --- Validation Set Configuration ---
 # The total number of subnets you want in your --diverse_subnets argument.

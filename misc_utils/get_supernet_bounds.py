@@ -90,7 +90,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Calculate the MACs and Parameter bounds for a given supernet architecture.")
     
-    ARCH_PATH = '/home/bostan/projects/superfednas/fedml_api/standalone/superfednas/cache_gen_scripts/4-stage-config.json'
+    ARCH_PATH = '/cache_gen_scripts/4-stage-config.json'
 
     parser.add_argument("--arch_config_path", type=str, default=ARCH_PATH,
                         help="Path to the JSON file describing the supernet architecture.")

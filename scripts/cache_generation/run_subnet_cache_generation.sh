@@ -10,7 +10,7 @@ PROJECT_ROOT="$(dirname "$(dirname "$SCRIPT_DIR")")"
 #    Adjust these if your config/output folders are named differently
 PYTHON_SCRIPT="$PROJECT_ROOT/src/nas/generate_subnet_cache.py"
 CONFIG_PATH="$PROJECT_ROOT/configs/supernets/4-stage-supernet-deepfednas.json"
-OUTPUT_CSV="$PROJECT_ROOT/results/4_stage_supernet_cache_60_subnets.csv"
+OUTPUT_CSV="$PROJECT_ROOT/subnet_caches/4_stage_supernet_cache_60_subnets.csv"
 
 # 3. Ensure Output Directory Exists
 mkdir -p "$(dirname "$OUTPUT_CSV")"

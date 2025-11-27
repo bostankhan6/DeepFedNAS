@@ -13,10 +13,7 @@ import copy
 import time
 import argparse
 
-# --- Path Setup ---
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../..")))
-
-# --- Import Your Project's Modules ---
+# --- Import Project's Modules ---
 try:
     from deepfednas.Server.generic_server_model import GenericServerOFA
     from deepfednas.utils.subnet_cost import subnet_macs
@@ -31,17 +28,17 @@ except ImportError as e:
 # --- 1. CONFIGURATION SECTION ---
 # ==========================================================================================
 MODEL_PATHS = [
-    "/home/bostan/projects/superfednas/fedml_experiments/standalone/superfednas/trained_models/Cinic10_baseline_best_checkpoint_final.pt"
+    "trained_models/Cinic10_baseline_best_checkpoint_final.pt"
 ]
 DATASET_NAME = 'cinic10' # Ensure this matches your model and data
-DATA_PATH = "/home/bostan/projects/superfednas/data/cinic10" # Ensure this matches your dataset path
+DATA_PATH = "data/cinic10" # Ensure this matches your dataset path
 
 # Base directory for all output files
-MAIN_DIR = "/home/bostan/projects/superfednas/fedml_experiments/standalone/superfednas/evaluation/bsaeline_cinic10_results_on_unseen_val"
+MAIN_DIR = "evaluation/bsaeline_cinic10_results_on_unseen_val"
 
 NUM_SEARCH_RUNS = 1 # Number of evolutionary runs per MACs target/bin
 BASE_SEED = 42
-NUM_SAMPLES_FOR_PREDICTOR = 2000
+NUM_SAMPLES_FOR_PREDICTOR = 10000
 PREDICTOR_EPOCHS = 400
 PREDICTOR_LR = 1e-4
 PREDICTOR_BATCH_SIZE = 256

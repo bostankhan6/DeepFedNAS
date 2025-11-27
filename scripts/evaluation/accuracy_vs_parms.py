@@ -7,7 +7,7 @@ import os
 # --- Configuration ---
 # Define the paths to your CSV files
 # Make sure these paths are correct for your environment
-DEEPFEDNAS_CSV_PATH = 'results/deepfednas_subnet_details_cifar100_correct_cached_60_subnets_p1024_g1024_w-fine-grained_cifar100.csv'
+DEEPFEDNAS_CSV_PATH = 'results/deepfednas_subnet_details_cifar100_correct_cached_60_subnets_cifar100.csv'
 SUPERFEDNAS_CSV_PATH = 'results/cifar-100-baseline_results_macs_parameters_10_pnts/subnet_details_cifar100_correct_baseline_cifar100.csv'
 OUTPUT_DIR = 'results/parameter_analyses/plots_and_tables' # Directory to save generated files
 

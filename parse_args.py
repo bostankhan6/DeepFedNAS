@@ -239,7 +239,7 @@ def add_args(parser):
         "--init_seed", type=int, default=0, help="Initial seed for reproducibility"
     )
     parser.add_argument(
-        "--wandb_project_name", type=str, default="superfednas_generic", help="Project Name for wandb logging"
+        "--wandb_project_name", type=str, default="deepfednas", help="Project Name for wandb logging"
     )
     parser.add_argument(
         "--wandb_group", type=str, default="validation_runs", help="W&B group name for organizing runs"
@@ -598,7 +598,7 @@ def add_args_test(parser): # Keep this function as is for now, or update similar
     parser.add_argument(
         "--wandb_project_name",
         type=str,
-        default="superfednas",
+        default="deepfednas",
         metavar="N",
         help="Project Name of wandb for logging",
     )
@@ -606,7 +606,7 @@ def add_args_test(parser): # Keep this function as is for now, or update similar
     parser.add_argument(
         "--wandb_run_name",
         type=str,
-        default="superfednas",
+        default="deepfednas",
         metavar="N",
         help="Run Name of wandb for logging",
     )
@@ -614,7 +614,7 @@ def add_args_test(parser): # Keep this function as is for now, or update similar
     parser.add_argument(
         "--wandb_entity",
         type=str,
-        default="superfednas",
+        default="deepfednas",
         metavar="N",
         help="helps in creating a project under teams or personal username",
     )

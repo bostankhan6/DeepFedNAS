@@ -6,9 +6,6 @@ import os
 import sys
 import argparse
 
-# --- Path Setup ---
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../..")))
-
 try:
     from deepfednas.nas.deepfednas_fitness_maximizer import (
         calculate_entropy_objective,
@@ -143,7 +140,7 @@ def main(args):
 
 if __name__ == "__main__":
 
-    ARCH_PATH = '/home/bostan/projects/superfednas/fedml_api/standalone/superfednas/cache_gen_scripts/4-stage-config.json'
+    ARCH_PATH = '/cache_gen_scripts/4-stage-config.json'
     OUTPUT_CSV = 'random_baseline_cache.csv'
     NUM_SAMPLES = 100
 

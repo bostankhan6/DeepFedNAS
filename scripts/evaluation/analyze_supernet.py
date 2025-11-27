@@ -10,10 +10,7 @@ from tqdm import tqdm
 import ast
 import json
 
-# --- Path Setup ---
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../..")))
-
-# --- Import Your Project's Modules ---
+# --- Import Project's Modules ---
 try:
     # Import the original data loaders to get their transformation pipelines
     from deepfednas.data.cifar10.data_loader import _data_transforms_cifar10
@@ -248,12 +245,12 @@ if __name__ == "__main__":
     # --- Choose the dataset ---
     DATASET = "cinic10" # Options: "cifar10", "cifar100", "cinic10"
 
-    MODEL_PATH = "results/cinic10_cached_60_subnets_p1024_g1024_w-fine-grained.pt"
-    MODEL_NAME = "cinic10_cached_60_subnets_p1024_g1024_w-fine-grained"
-    ARCH_CSV_PATH = "results/4_stage_cache_60_subnets_p1024_g1024_w-fine-grained.csv"
+    MODEL_PATH = "results/cinic10_cached_60_subnets.pt"
+    MODEL_NAME = "cinic10_cached_60_subnets"
+    ARCH_CSV_PATH = "results/4_stage_cache_60_subnets.csv"
     OUTPUT_DIR = f"results/single_analysis_results/{MODEL_NAME}"
     NUM_SUBNETS_TO_EVAL = 60
-    DATA_DIR = "/home/bostan/projects/superfednas/data" # Root data directory
+    DATA_DIR = "/data" # Root data directory
     BATCH_SIZE = 2*2048
     GPU_ID = 1
     # =================================================================================

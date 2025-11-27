@@ -7,13 +7,13 @@ cd "$PROJECT_ROOT"
 echo "Running experiment from root: $PROJECT_ROOT"
 
 python train.py \
-    --local_model_ckpt_path /home/bostan/projects/superfednas/fedml_experiments/standalone/superfednas/wandb/run-20250901_104708-c7ziv1ou/files/latest_round_model.pt \
+    --local_model_ckpt_path "$PROJECT_ROOT/wandb/run-20250901_104708-c7ziv1ou/files/latest_round_model.pt" \
     --wandb_run_id_resume "" \
     --resume_round 1401 \
     --model ofaresnet_generic \
     --wandb_project_name Deepfednas_cinic10 \
     --wandb_group "4_Stage_original_Supernet" \
-    --wandb_run_name "continued1401_cached_60_subnets_p1024_g1024_w-fine-grained" \
+    --wandb_run_name "continued1401_cached_60_subnets" \
     --gpu 0 \
     --dataset cinic10 \
     --data_dir "$PROJECT_ROOT/data/cifar10" \
@@ -40,4 +40,4 @@ python train.py \
     --supernet_width_multiplier_choices '[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]' \
     --supernet_expansion_ratio_choices '[0.1, 0.14, 0.18, 0.22, 0.25]' \
     --diverse_subnets '{"0": {"d": [2, 2, 2, 2], "e": [0.18, 0.1, 0.1, 0.18, 0.14, 0.1, 0.14, 0.14, 0.1, 0.1, 0.1, 0.1], "w_indices": [9, 4, 4, 4, 4]}, "1": {"d": [2, 2, 2, 2], "e": [0.14, 0.14, 0.14, 0.18, 0.14, 0.14, 0.14, 0.14, 0.1, 0.14, 0.14, 0.14], "w_indices": [9, 8, 7, 8, 7]}, "2": {"d": [2, 2, 2, 2], "e": [0.25, 0.14, 0.14, 0.25, 0.14, 0.14, 0.18, 0.18, 0.18, 0.18, 0.18, 0.14], "w_indices": [9, 9, 9, 9, 9]}, "3": {"d": [2, 2, 2, 2], "e": [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25], "w_indices": [9, 9, 9, 9, 9]}}' \
-    --subnet_cache_path "$PROJECT_ROOT/subnet_caches/4_stage_cache_60_subnets_p1024_g1024_w-fine-grained.csv"
+    --subnet_cache_path "$PROJECT_ROOT/subnet_caches/4_stage_cache_60_subnets.csv"
