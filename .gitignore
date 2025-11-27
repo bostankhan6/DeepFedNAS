@@ -7,3 +7,4 @@ data/cinic10/*
 __pycache__
 *.pyc
 wandb/*
+src/deepfednas/__pycache__
