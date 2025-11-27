@@ -185,14 +185,7 @@ def add_args(parser):
         choices=['static', 'TS_optimal_path', 'TS_cached_entropy_maximizer', 'TS_entropy_maximizer', 'dynamic', 'all_random', 'TS_all_random', 'sandwich_all_random', 'TS_compound', 'max_sample_count', 'multi_sandwich', 'TS_KD', 'PS'],
         help="Subnetwork selection strategy for every round"
     )
-    # # If 'TS_optimal_path' sampler is used then this settings is used
-    # parser.add_argument(
-    #     '--optimal_path_cache_path',
-    #     type=str,
-    #     default='optimal_path_cache.csv',
-    #     help='Path to the pre-computed optimal path cache file for the path-guided sampler.'
-    # )
-    # If 'TS_optimal_path' or 'TS_cached_entropy_maximizer' sampler is used then this settings is used
+    
     parser.add_argument(
         "--subnet_cache_path",
         type=str,

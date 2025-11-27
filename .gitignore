@@ -1,2 +1,9 @@
 venv
 src/deepfednas.egg-info
+data/cifar10/*
+data/cifar100/*
+data/cinic10/*
+# Ignore python cache files
+__pycache__/
+*.pyc
+wandb/*

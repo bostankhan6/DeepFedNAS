@@ -7,7 +7,7 @@ cd "$PROJECT_ROOT"
 echo "Running experiment from root: $PROJECT_ROOT"
 
 python train.py \
-    --local_model_ckpt_path /home/bostan/projects/superfednas/fedml_experiments/standalone/superfednas/wandb/run-20250801_095016-2y0d1smn/files/latest_round_model.pt \
+    --local_model_ckpt_path "$PROJECT_ROOT/wandb/run-20250801_095016-2y0d1smn/files/latest_round_model.pt" \
     --wandb_run_id_resume 2y0d1smn \
     --resume_round 921 \
     --model ofaresnet_generic \

@@ -22,9 +22,7 @@ from deepfednas.data.cifar100.data_loader import load_partition_data_cifar100
 from deepfednas.data.cinic10.data_loader import load_partition_data_cinic10
 
 # --- Learning Rate and Trainers (No change) ---
-from deepfednas.Server import (
-    deepfednas_trainer
-)
+from deepfednas.Server.deepfednas_trainer import Deepfednas_Trainer
 from deepfednas.Client.subnet_trainer import SubnetTrainer
 
 ### Import the new generic server model.
@@ -300,7 +298,7 @@ def create_model(args, output_dim, device, load_teacher=False):
 # The custom_server_trainer and custom_client_trainer functions remain unchanged.
 def custom_server_trainer(server_trainer_params):
     assert server_trainer_params is not None
-    return deepfednas_trainer(**server_trainer_params)
+    return Deepfednas_Trainer(**server_trainer_params)
 
 
 def custom_client_trainer(client_trainer_params):
