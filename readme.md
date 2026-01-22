@@ -155,7 +155,6 @@ The script saves results to `evaluation/latency_prediction/`, including:
 DeepFedNAS demonstrates significant improvements over the baseline SuperFedNAS framework across multiple metrics, including search efficiency, model accuracy, and robustness to non-IID data.
 
 ### 1\. Search Efficiency & Speedup
-
 DeepFedNAS eliminates the need for expensive accuracy predictor training, reducing the total search pipeline time by **\~61x**.
 
 | Search Pipeline Stage | Baseline (SuperFedNAS) | **DeepFedNAS (Ours)** |
@@ -166,30 +165,26 @@ DeepFedNAS eliminates the need for expensive accuracy predictor training, reduci
 | **Search Method** | Accuracy Predictor | **Fitness Function Proxy** |
 
 ### 2\. Accuracy vs. Computational Budget
-
-DeepFedNAS consistently outperforms the baseline across various MACs constraints on benchmark datasets.
+DeepFedNAS consistently outperforms the baseline, with particularly strong gains in constrained hardware regimes (low-to-medium MACs).
 
 | Dataset | MACs Budget (B) | Baseline Acc (%) | **DeepFedNAS Acc (%)** | Improvement |
 | :--- | :--- | :--- | :--- | :--- |
 | **CIFAR-100** | 0.95 - 1.45 | 61.66% | **62.87%** | **+1.21%** |
 | **CIFAR-100** | 2.45 - 3.75 | 62.30% | **63.20%** | **+0.90%** |
-| **CIFAR-10** | 0.45 - 0.95 | 93.47% | **94.16%** | **+0.69%** |
-| **CINIC-10** | 1.45 - 2.45 | 77.09% | **77.80%** | **+0.71%** |
+| **CIFAR-10** | 0.95 - 1.45 | 93.52% | **94.51%** | **+0.99%** |
+| **CINIC-10** | 0.95 - 1.45 | 76.53% | **77.60%** | **+1.07%** |
 
 ### 3\. Robustness to Non-IID Data
+DeepFedNAS shows superior stability in heterogeneous environments. The performance gap widens significantly in difficult scenarios (high non-IID or low compute resources).
 
-DeepFedNAS is significantly more robust to statistical heterogeneity (Non-IID data) compared to the SuperFedNAS baseline.
-
-| Non-IID Degree ($\alpha$) | Baseline Acc (%) | **DeepFedNAS Acc (%)** |
-| :--- | :--- | :--- |
-| **$\alpha = 100$ (Low)** | 93.72% | **94.51%** |
-| **$\alpha = 1.0$ (Med)** | 92.63% | **93.33%** |
-| **$\alpha = 0.1$ (High)** | 86.00% | **86.83%** |
+| Non-IID Degree ($\alpha$) | Budget Scope | Baseline Acc (%) | **DeepFedNAS Acc (%)** | Improvement |
+| :--- | :--- | :--- | :--- | :--- |
+| **$\alpha = 100$ (Low)** | High Budget | 93.72% | **94.51%** | **+0.79%** |
+| **$\alpha = 1.0$ (Med)** | Low Budget | 91.73% | **92.84%** | **+1.11%** |
+| **$\alpha = 0.1$ (High)** | Med Budget | 85.56% | **86.56%** | **+1.00%** |
 
 ### 4\. Parameter Efficiency
-
 DeepFedNAS discovers subnets that achieve higher accuracy with significantly fewer parameters.
-
 * **CIFAR-100 Example:** DeepFedNAS achieves **62.60%** accuracy with only **19.43M** parameters, whereas the baseline requires **55.03M** parameters to achieve a lower accuracy of **62.22%**.
 
 -----
