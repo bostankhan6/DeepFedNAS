@@ -110,7 +110,7 @@ python scripts/evaluation/find_subnet_for_macs.py \
 
 ```
 
-* This script runs a fast Genetic Algorithm maximizing $\mathcal{F}(\mathcal{A})$ subject to the MACs constraint, returning the optimal subnet configuration in seconds.
+* This script runs a fast Genetic Algorithm maximizing F(A) subject to the MACs constraint, returning the optimal subnet configuration in seconds.
 
 ### Phase 4: Comprehensive Benchmarking (Pareto Frontier Generation)
 
