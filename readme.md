@@ -198,10 +198,13 @@ DeepFedNAS discovers subnets that achieve higher accuracy with significantly few
 If you use this code or framework in your research, please cite our paper:
 
 ```bibtex
-@article{khan2025deepfednas,
-  title={DeepFedNAS: A Unified Framework for Principled Supernet Training and Predictor-Free Federated Architecture Search},
-  author={Khan, Bostan and Daneshtalab, Masoud},
-  journal={arXiv preprint},
-  year={2025}
+@misc{khan2026deepfednasunifiedframeworkprincipled,
+      title={DeepFedNAS: A Unified Framework for Principled, Hardware-Aware, and Predictor-Free Federated Neural Architecture Search}, 
+      author={Bostan Khan and Masoud Daneshtalab},
+      year={2026},
+      eprint={2601.15127},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2601.15127}, 
 }
 ```
