@@ -248,7 +248,7 @@ def add_args(parser):
         "--wandb_run_name", type=str, default="generic_run_1", help="Run Name for wandb logging"
     )
     parser.add_argument(
-        "--wandb_entity", type=str, default="bostankhan6-m-lardalens-university", help="W&B entity (username or team)"
+        "--wandb_entity", type=str, default="None", help="W&B entity (username or team)"
     )
     
     parser.add_argument(
