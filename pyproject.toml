@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deepfednas"
+version = "0.2.0"
+description = "Federated supernet training and architecture search"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [{name = "Bostan Khan"}]
+dependencies = [
+    "numpy", "pandas", "scipy", "scikit-learn", "torch", "torchvision",
+    "ofa", "wandb", "tqdm", "Pillow", "matplotlib", "PyYAML",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

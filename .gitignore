@@ -1,0 +1,15 @@
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+data/cifar10/
+data/cifar100/
+data/cinic10/
+checkpoints/
+outputs/
+wandb/
+*.log
