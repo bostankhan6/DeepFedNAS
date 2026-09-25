@@ -481,6 +481,11 @@ def add_args(parser):
         help="Test efficiently",
     )
     parser.add_argument(
+        "--skip_train_test",
+        action="store_true",
+        help="Skip training-set accuracy calculations during validation.",
+    )
+    parser.add_argument(
         "--reset_bn_sample_size",
         type=float,
         default=0.2,

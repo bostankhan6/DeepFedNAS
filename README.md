@@ -18,12 +18,12 @@ Values are mean ± standard deviation over five architecture-search seeds (42–
 
 ## Get started
 
-Use Python 3.10 or newer. Clone the repository and activate a virtual environment:
+Python 3.12.12 is recommended; it matches the environment used for these experiments. The package requires Python 3.10 or newer. Clone the repository and activate a virtual environment:
 
 ```bash
 git clone https://github.com/bostankhan6/DeepFedNAS.git
 cd DeepFedNAS
-python3 -m venv .venv
+python3.12 -m venv .venv
 source .venv/bin/activate
 ```
 
