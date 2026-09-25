@@ -36,7 +36,7 @@ bash experiments/02_deepfednas/cifar10.sh
 bash experiments/01_baseline/cifar10.sh
 ```
 
-To preview either training command, prefix it with `DRY_RUN=1`. The supplied [`60-subnet cache`](subnet_caches/4_stage_cache_60_subnets.csv) is ready to use; dataset images and trained checkpoints are not included.
+To preview either training command, prefix it with `DRY_RUN=1`. The supplied [`60-subnet cache`](subnet_caches/4_stage_cache_60_subnets.csv) and [CIFAR-10 client partitions](configs/partitions/cifar10/) are ready to use; dataset images and trained checkpoints are not included. Each CIFAR-10 launcher selects the matching partition automatically. A real training run stops if that file is missing; it does not regenerate it.
 
 ## Reproduce search and test results
 
