@@ -6,7 +6,7 @@ import numpy as np
 # Assuming these can be imported from OFA's toolkit or your existing files
 from ofa.utils.layers import (
     IdentityLayer,
-    ResidualBlock, # This was used in OFAResNets32x32_10_26 for the static subnet, might need a generic version
+    ResidualBlock,
     ConvLayer,
     LinearLayer,
     MyModule,
@@ -27,17 +27,6 @@ from ofa.imagenet_classification.elastic_nn.modules.dynamic_op import (
     DynamicLinear
 )
 from ofa.imagenet_classification.elastic_nn.modules.dynamic_layers import copy_bn
-
-# We'll reuse DynamicResidualBlock from ofa_resnets_32x32_10_26.py or redefine it here
-# For now, let's assume it's available. If not, we'd copy its definition.
-# from ofa_resnets_32x32_10_26 import DynamicResidualBlock, NewResidualBlock
-# If DynamicResidualBlock is in the same directory or adjusted path:
-try:
-    from .ofa_resnets_32x32_10_26 import DynamicResidualBlock, NewResidualBlock # Relative import if in same package
-except ImportError:
-    # Fallback if running directly or structure is different
-    # This assumes ofa_resnets_32x32_10_26.py is accessible in python path
-    from ofa_resnets_32x32_10_26 import DynamicResidualBlock, NewResidualBlock
 
 class NewResidualBlock(MyModule):
     """
@@ -445,7 +434,7 @@ class DynamicResidualBlock(MyModule):
     def re_organize_middle_weights(self, expand_ratio_stage=0):
         raise NotImplementedError
 
-class GenericStaticResNetSubnet(MyNetwork): # Analogous to ResNets32x32_10_26
+class GenericStaticResNetSubnet(MyNetwork):
     def __init__(self, input_stem, blocks, classifier):
         super(GenericStaticResNetSubnet, self).__init__()
         self.input_stem = nn.ModuleList(input_stem)
@@ -486,7 +475,7 @@ class GenericStaticResNetSubnet(MyNetwork): # Analogous to ResNets32x32_10_26
         return net
 
 
-class GenericOFAResNet(MyNetwork): # Analogous to OFAResNets32x32_10_26
+class GenericOFAResNet(MyNetwork):
     def __init__(self,
                  num_stages: int,
                  initial_input_hw: int, # Not directly used in layer construction, but for info
@@ -562,7 +551,7 @@ class GenericOFAResNet(MyNetwork): # Analogous to OFAResNets32x32_10_26
                 # For subsequent blocks within the same stage, in_channel_list is the current stage's out_channel_list.
                 block_in_channels_list = current_max_in_channels_list if block_idx == 0 else stage_max_out_channels_list
 
-                residual_block = DynamicResidualBlock( # Using the block from ofa_resnets_32x32_10_26
+                residual_block = DynamicResidualBlock(
                     in_channel_list=block_in_channels_list,
                     out_channel_list=stage_max_out_channels_list,
                     expand_ratio_list=self.expansion_ratio_choices,
@@ -744,7 +733,6 @@ class GenericOFAResNet(MyNetwork): # Analogous to OFAResNets32x32_10_26
         }
 
     # Add other necessary methods like sample_active_subnet, get_active_net_config if needed,
-    # adapting them from OFAResNets32x32_10_26.
     def sample_active_subnet(self):
         """ Samples a random configuration for d, e_indices, w_indices """
         
