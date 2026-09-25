@@ -18,13 +18,18 @@ Values are mean ± standard deviation over five architecture-search seeds (42–
 
 ## Get started
 
-Python 3.10+ and a compatible PyTorch/torchvision installation are required. Select the right build for your hardware at [pytorch.org](https://pytorch.org/get-started/locally/), then run:
+Use Python 3.10 or newer. Clone the repository and activate a virtual environment:
 
 ```bash
 git clone https://github.com/bostankhan6/DeepFedNAS.git
 cd DeepFedNAS
 python3 -m venv .venv
 source .venv/bin/activate
+```
+
+Install PyTorch and torchvision with the command for your hardware from the [official selector](https://pytorch.org/get-started/locally/). Then install the project and prepare CIFAR-10:
+
+```bash
 pip install -r requirements.txt
 bash scripts/data_setup/download_cifar10.sh
 ```
