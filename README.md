@@ -1,12 +1,18 @@
 # DeepFedNAS
 
-**Federated neural architecture search for image classifiers at different compute budgets.** DeepFedNAS trains one elastic supernet and uses a 60-subnet cache to guide training across a range of model sizes. After training, structural fitness selects subnetworks for a target multiply–accumulate operation (MAC) budget.
+**Federated neural architecture search across compute budgets.** DeepFedNAS trains one elastic supernet using a 60-subnet curriculum, then selects architectures for a target multiply–accumulate operation (MAC) budget without training an accuracy predictor.
 
-This repository includes a matched **SuperFedNAS** comparison. Both methods use the same supernet and training setup; SuperFedNAS samples within the same MAC range and trains a validation-based accuracy predictor for architecture search. DeepFedNAS uses the supplied subnet cache and searches without that predictor.
+## Contributions
+
+- **Fitness-guided architecture selection:** A structural fitness function combines network information measures with architectural constraints to rank subnetworks without evaluating them on validation images during search.
+- **Pareto-guided federated training:** A redesigned elastic ResNet supernet is trained with architectures from a precomputed 60-subnet path across the operating MAC range.
+- **Predictor-free deployment search:** A genetic search selects a subnet for a new MAC budget without retraining the supernet or constructing an accuracy predictor.
+
+The repository includes a matched **SuperFedNAS** comparison. Both methods train the same supernet over the same operating MAC range; SuperFedNAS samples architectures within that range and uses a validation-trained accuracy predictor for search.
 
 ## Results
 
-Official-test accuracy at the smallest shared budget (**0.458–0.95 billion MACs**):
+At the smallest shared budget (**0.458–0.95 billion MACs**), DeepFedNAS improves official-test accuracy on all three datasets:
 
 | Dataset | SuperFedNAS | DeepFedNAS |
 | --- | ---: | ---: |
@@ -14,11 +20,23 @@ Official-test accuracy at the smallest shared budget (**0.458–0.95 billion MAC
 | CIFAR-100 | 71.21 ± 0.41% | **73.09 ± 0.41%** |
 | CINIC-10 | 78.74 ± 0.30% | **81.81 ± 0.38%** |
 
-Values are mean ± standard deviation over five architecture-search seeds (42–46), using one trained checkpoint per method. DeepFedNAS also leads in the other three tested MAC ranges on each dataset. For CIFAR-10, preparing the SuperFedNAS predictor took about 3.9 hours on an NVIDIA RTX A5000; one DeepFedNAS budget search took about 20 seconds on a CPU. The DeepFedNAS cache is built once before training (about 20 minutes on a CPU).
+The gain in mean test accuracy holds across **all four shared MAC ranges** (percentage points):
+
+| MAC range (billions) | CIFAR-10 | CIFAR-100 | CINIC-10 |
+| --- | ---: | ---: | ---: |
+| 0.458–0.95 | +0.57 | +1.88 | +3.07 |
+| 0.95–1.45 | +0.52 | +1.63 | +3.59 |
+| 1.45–2.45 | +0.72 | +2.36 | +4.22 |
+| 2.45–3.403 | +1.04 | +2.60 | +4.80 |
+| **Mean** | **+0.71** | **+2.12** | **+3.92** |
+
+Accuracy values are mean ± standard deviation over five architecture-search seeds (42–46) with partition α=100 and participation rate 0.4. At α=0.1 on CIFAR-10, the gains span 3.40–4.55 points. At the smallest CIFAR-100 budget, DeepFedNAS reaches 73.09% with 18.88M parameters, exceeding SuperFedNAS's best mean accuracy across the four ranges (72.49% with 55.70M parameters).
+
+For CIFAR-10, building the SuperFedNAS accuracy predictor requires 10,000 full sweeps of the 5,000-image validation split (50 million image-level forward evaluations) and took about 3.9 hours on an NVIDIA RTX A5000. DeepFedNAS needs no accuracy predictor and searches a target budget in about 20 seconds on a CPU. Its 60-subnet cache is prepared once before training, taking about 20 minutes on a CPU.
 
 ## Get started
 
-Python 3.12.12 is recommended; it matches the environment used for these experiments. The package requires Python 3.10 or newer. Clone the repository and activate a virtual environment:
+The package requires Python 3.12 or newer. Clone the repository and activate a virtual environment:
 
 ```bash
 git clone https://github.com/bostankhan6/DeepFedNAS.git
