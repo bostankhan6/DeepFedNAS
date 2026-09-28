@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use DeepFedNAS, please cite the paper below."
+title: "DeepFedNAS"
+type: software
+authors:
+  - family-names: Khan
+    given-names: Bostan
+repository-code: "https://github.com/bostankhan6/DeepFedNAS"
+preferred-citation:
+  type: generic
+  authors:
+    - family-names: Khan
+      given-names: Bostan
+    - family-names: Daneshtalab
+      given-names: Masoud
+  title: "DeepFedNAS: Efficient Hardware-Aware Architecture Adaptation for Heterogeneous IoT Federations via Pareto-Guided Supernet Training"
+  year: 2026
+  doi: "10.48550/arXiv.2601.15127"
+  url: "https://arxiv.org/abs/2601.15127v4"
+  identifiers:
+    - type: other
+      value: "arXiv:2601.15127v4"
+      description: "Version 4 of the arXiv preprint"

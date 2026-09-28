@@ -2,6 +2,8 @@
 
 **Federated neural architecture search across compute budgets.** DeepFedNAS trains one elastic supernet using a 60-subnet curriculum, then selects architectures for a target multiply–accumulate operation (MAC) budget without training an accuracy predictor.
 
+**Paper:** [DeepFedNAS on arXiv (v4)](https://arxiv.org/abs/2601.15127v4)
+
 ## Contributions
 
 - **Fitness-guided architecture selection:** A structural fitness function combines network information measures with architectural constraints to rank subnetworks without evaluating them on validation images during search.
